@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bemutatkozó oldal - 2. lépés</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f6fa;
+            color: #243447;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 6px;
+        }
+
+        nav {
+            background: #163a5a;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #2d6fa3;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            min-height: 600px;
+            position: relative;
+        }
+
+        .page h2 {
+            color: #1f4e79;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #dce8f2;
+            padding-bottom: 10px;
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 25px;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #e8f1f8;
+            border: 4px solid #2d6fa3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+        }
+
+        .bio-box {
+            background: #eef6fc;
+            border-left: 5px solid #2d6fa3;
+            padding: 15px 18px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .favorite-animal {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .bottom-link {
+            position: absolute;
+            bottom: 25px;
+            right: 35px;
+            color: #1f4e79;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bottom-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #163a5a;
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                padding: 25px 20px 70px;
+            }
+
+            .profile {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-link {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Személyes Bemutatkozó Oldal</h1>
+        <p>2. fázis: Tini bemutatkozás és tartalom bővítése</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Főoldal</a>
+        <a href="#bemutatkozas">Bemutatkozás</a>
+    </nav>
+
+    <main>
+        <section class="page" id="bemutatkozas">
+            <h2>Bemutatkozó oldal</h2>
+
+            <div class="profile">
+                <div class="profile-card">
+                    <div class="avatar">🎧</div>
+                    <p><strong>Horváth Milán Noel</strong></p>
+                </div>
+
+                <div class="profile-info">
+                    <p><strong>Név:</strong> Horváth Milán Noel</p>
+                    <p><strong>Hobby:</strong> Zene készítés, DJ szettek összeállítása</p>
+                    <p><strong>Kedvenc sport:</strong> Tenisz</p>
+
+                    <div class="bio-box">
+                        <p>
+                            Sziasztok! Horváth Milán Noel vagyok. A mindennapjaimat legfőképpen a zene világa határozza meg: imádom az elektronikus ritmusokat, és sokat gyakorlok DJ pult mögött, hogy saját szetteket rakjak össze. Amikor nem a zenével foglalkozom, a pályán kapcsolódom ki teniszezés közben, ami nagyon jól fejlesztje a reakcióidőmet és az állóképességemet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="favorite-animal">
+                <h3>Kedvenc állatom: Szibériai Husky</h3>
+                <p style="margin-top: 15px;">
+                    A Szibériai Husky egy rendkívül intelligens, energikus és gyönyörű kutyafajta. Híresek az ikonikus kék szemeikről, barátságos természetükről és hatalmas mozgásigényükről.
+                </p>
+            </div>
+
+            <!-- Jobb oldalt alul egy link, ami visszavisz a nyitóoldalra -->
+            <a class="bottom-link" href="index.html">← Vissza a nyitóoldalra</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 – Horváth Milán Noel</p>
+    </footer>
+</body>
+</html>
