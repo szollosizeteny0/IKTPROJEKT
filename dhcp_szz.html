@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHCP</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f6fa;
+            color: #243447;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 6px;
+        }
+
+        nav {
+            background: #163a5a;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #2d6fa3;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            min-height: 600px;
+            position: relative;
+        }
+
+        .page h2 {
+            color: #1f4e79;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #dce8f2;
+            padding-bottom: 10px;
+        }
+
+        .page h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #2d6fa3;
+        }
+
+        .info-box {
+            background: #eef6fc;
+            border-left: 5px solid #2d6fa3;
+            padding: 15px 18px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* DHCP diagram */
+        .dhcp-diagram {
+            margin: 25px auto;
+            max-width: 850px;
+        }
+
+        .diagram-row {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            align-items: center;
+            gap: 15px;
+            margin: 16px 0;
+        }
+
+        .device {
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .client {
+            background: #e4f1ff;
+            border: 2px solid #70aee0;
+        }
+
+        .server {
+            background: #e8f7ed;
+            border: 2px solid #70bd89;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 28px;
+            color: #1f4e79;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Bemutatkozó oldal */
+        .profile {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 25px;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #e8f1f8;
+            border: 4px solid #2d6fa3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+        }
+
+        .favorite-animal {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .animal-image {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            margin: 15px auto;
+            border-radius: 12px;
+            background: #dfeef7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .animal-image svg {
+            width: 180px;
+            height: 180px;
+        }
+
+        .bottom-link {
+            position: absolute;
+            bottom: 25px;
+            right: 35px;
+            color: #1f4e79;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bottom-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #163a5a;
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                padding: 25px 20px 70px;
+            }
+
+            .profile {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram-row {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .bottom-link {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hálózati és Bemutatkozó Oldal</h1>
+        <p>DHCP működése és személyes bemutatkozás</p>
+    </header>
+
+    <nav>
+        <a href="dhcp_szz.html">DHCP oldal</a>
+        <a href="bemutatkozas_szz.html">Bemutatkozás</a>
+    </nav>
+
+    <main>
+        <!-- DHCP oldal -->
+        <section class="page" id="dhcp">
+            <h2>Dynamic Host Configuration Protocol</h2>
+
+            <div class="info-box">
+                <strong>DHCP:</strong> A DHCP (Dynamic Host Configuration Protocol) egy hálózati protokoll, amely automatikusan osztja ki az IP-címeket és a kapcsolódó hálózati beállításokat (például az alhálózati maszkot és az alapértelmezett átjárót) a csatlakozó eszközöknek. Működésének köszönhetően a hálózati adminisztrátoroknak nem kell manuálisan konfigurálniuk minden egyes új gépet, ami jelentősen megkönnyíti a hálózatok üzemeltetését és bővítését. A protokoll egy ügyfél-szerver (client-server) architektúrán alapul, és négylépéses folyamatot – úgynevezett DORA (Discover, Offer, Request, Acknowledgment) – használ a kapcsolat létesítésére. Ezzel a dinamikus címosztással elkerülhetők a kézi beállításból adódó ütközések, ráadásul hatékonyan kezeli a véges IP-címkészletet is azáltal, hogy a nem használt címeket idővel újrahasznosítja.
+            </div>
+
+            <h3>DHCP folyamat</h3>
+            <p>
+                A kliens és a DHCP-szerver között a címkérés négy fő lépésből áll:
+                <strong>Discover → Offer → Request → Ack</strong>.
+            </p>
+
+            <div class="dhcp-diagram">
+                <div class="diagram-row">
+                    <div class="device client">Kliens</div>
+                    <div class="arrow">→</div>
+                    <div class="device server">DHCP szerver</div>
+                </div>
+                <div class="message"><strong>DHCP Discover</strong> – A kliens szervert keres.</div>
+
+                <div class="diagram-row">
+                    <div class="device client">Kliens</div>
+                    <div class="arrow">←</div>
+                    <div class="device server">DHCP szerver</div>
+                </div>
+                <div class="message"><strong>DHCP Offer</strong> – A szerver felajánl egy IP-címet.</div>
+
+                <div class="diagram-row">
+                    <div class="device client">Kliens</div>
+                    <div class="arrow">→</div>
+                    <div class="device server">DHCP szerver</div>
+                </div>
+                <div class="message"><strong>DHCP Request</strong> – A kliens kéri a felajánlott címet.</div>
+
+                <div class="diagram-row">
+                    <div class="device client">Kliens</div>
+                    <div class="arrow">←</div>
+                    <div class="device server">DHCP szerver</div>
+                </div>
+                <div class="message"><strong>DHCP Ack</strong> – A szerver megerősíti a kiosztást.</div>
+            </div>
+
+        
+
+            <a class="bottom-link" href="bemutatkozas_szz.html">Tovább a bemutatkozó oldalra →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 – Egyszerű HTML bemutató oldal</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bemutatkozás SZZ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f6fa;
+            color: #243447;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 6px;
+        }
+
+        nav {
+            background: #163a5a;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #2d6fa3;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            min-height: 600px;
+            position: relative;
+        }
+
+        .page h2 {
+            color: #1f4e79;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #dce8f2;
+            padding-bottom: 10px;
+        }
+
+        .page h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #2d6fa3;
+        }
+
+        .info-box {
+            background: #eef6fc;
+            border-left: 5px solid #2d6fa3;
+            padding: 15px 18px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* DHCP diagram */
+        .dhcp-diagram {
+            margin: 25px auto;
+            max-width: 850px;
+        }
+
+        .diagram-row {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            align-items: center;
+            gap: 15px;
+            margin: 16px 0;
+        }
+
+        .device {
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .client {
+            background: #e4f1ff;
+            border: 2px solid #70aee0;
+        }
+
+        .server {
+            background: #e8f7ed;
+            border: 2px solid #70bd89;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 28px;
+            color: #1f4e79;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Bemutatkozó oldal */
+        .profile {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 25px;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #e8f1f8;
+            border: 4px solid #2d6fa3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+        }
+
+        .favorite-animal {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .animal-image {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            margin: 15px auto;
+            border-radius: 12px;
+            background: #dfeef7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .animal-image svg {
+            width: 180px;
+            height: 180px;
+        }
+
+        .bottom-link {
+            position: absolute;
+            bottom: 25px;
+            right: 35px;
+            color: #1f4e79;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bottom-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #163a5a;
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                padding: 25px 20px 70px;
+            }
+
+            .profile {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram-row {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .bottom-link {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <!-- Bemutatkozó oldal -->
+        <section class="page" id="bemutatkozas">
+            <h2>Bemutatkozó oldal</h2>
+
+            <div class="profile">
+                <div class="profile-card">
+                    <div class="avatar">👤</div>
+                    <p><strong>Bemutatkozás</strong></p>
+                </div>
+
+                <div class="profile-info">
+                    <p><strong>Név:</strong> Szöllősi Zétény</p>
+                    <p><strong>Hobbik:</strong> Muay Thai, Konditerem</p>
+                    <p><strong>Kedvenc sport:</strong> Muay Thai</p>
+                </div>
+            </div>
+
+            <div class="favorite-animal">
+                <h3>Kedvenc állatom</h3>
+
+                <div class="animal-image">
+                    <img src="img/images.jpg" alt="Shiba inu">
+                </div>
+
+                <p>
+                    A kutyák barátságos, játékos és hűséges állatok. Sok ember számára
+                    nagyszerű társak a mindennapokban.
+                </p>
+            </div>
+
+            <a class="bottom-link" href="dhcp_szz.html">← Vissza a nyitóoldalra</a>
+
+            <a href="index.html">← Vissza a főoldalra</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 – Egyszerű HTML bemutató oldal</p>
+    </footer>
+</body>
+</html>
