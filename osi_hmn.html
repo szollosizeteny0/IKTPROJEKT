@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Systems Interconnection Model - Végleges</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f6fa;
+            color: #243447;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 6px;
+        }
+
+        nav {
+            background: #163a5a;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #2d6fa3;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            min-height: 600px;
+            position: relative;
+        }
+
+        .page h2 {
+            color: #1f4e79;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #dce8f2;
+            padding-bottom: 10px;
+        }
+
+        .page h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #2d6fa3;
+        }
+
+        .info-box {
+            background: #eef6fc;
+            border-left: 5px solid #2d6fa3;
+            padding: 15px 18px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* OSI vs TCP/IP Diagram végleges stílusai */
+        .diagram-wrapper {
+            margin: 25px auto;
+            max-width: 850px;
+        }
+
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .model-col h4 {
+            text-align: center;
+            background: #1f4e79;
+            color: white;
+            padding: 12px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .layers {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .layer {
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .osi-style {
+            background: #e4f1ff;
+            border: 1.5px solid #70aee0;
+            color: #1f4e79;
+        }
+
+        .tcp-style {
+            background: #e8f7ed;
+            border: 1.5px solid #70bd89;
+            color: #1b5e20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bottom-link {
+            position: absolute;
+            bottom: 25px;
+            right: 35px;
+            color: #1f4e79;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 6px 12px;
+            background: #eef6fc;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .bottom-link:hover {
+            background: #dce8f2;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #163a5a;
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                padding: 25px 20px 70px;
+            }
+
+            .diagram-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-link {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hálózati Ismeretek</h1>
+        <p>OSI Modell és protokollcsaládok</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Nyitóoldal</a>
+        <a href="bemutatkozas_hmn.html">Bemutatkozás</a>
+    </nav>
+
+    <main>
+        <section class="page">
+            <h2>Open Systems Interconnection Model</h2>
+
+            <div class="info-box">
+                Az OSI (Open Systems Interconnection) modell egy koncepcionális keretrendszer, amely leírja a hálózati kommunikáció folyamatát. A modell a teljes kommunikációs folyamatot hét elkülöníthető rétegre osztja fel. Minden egyes réteg meghatározott feladatokért felelős, és szolgáltatásokat nyújt a felette lévő réteg számára. Az adatok küldésekor a felső rétegektől haladunk az alsóbb rétegek felé, míg a fogadó oldalon ez a folyamat fordítva játszódik le. Bár a gyakorlatban a TCP/IP modell terjedt el, az OSI modell továbbra is az oktatás és a hálózati hibaelhárítás legfontosabb alapja.
+            </div>
+
+            <h3>OSI modell és a TCP/IP modell összehasonlítása</h3>
+            
+            <div class="diagram-wrapper">
+                <div class="diagram-grid">
+                    <div class="model-col">
+                        <h4>OSI Modell (7 réteg)</h4>
+                        <div class="layers">
+                            <div class="layer osi-style">7. Alkalmazási réteg (Application)</div>
+                            <div class="layer osi-style">6. Megjelenítési réteg (Presentation)</div>
+                            <div class="layer osi-style">5. Viszonyréteg (Session)</div>
+                            <div class="layer osi-style">4. Szállítási réteg (Transport)</div>
+                            <div class="layer osi-style">3. Hálózati réteg (Network)</div>
+                            <div class="layer osi-style">2. Adatkapcsolati réteg (Data Link)</div>
+                            <div class="layer osi-style">1. Fizikai réteg (Physical)</div>
+                        </div>
+                    </div>
+
+                    <div class="model-col">
+                        <h4>TCP/IP Modell (4 réteg)</h4>
+                        <div class="layers">
+                            <div class="layer tcp-style" style="height: 148px;">
+                                4. Alkalmazási réteg<br>(Application)
+                            </div>
+                            <div class="layer tcp-style" style="height: 46px;">
+                                3. Szállítási réteg (Transport)
+                            </div>
+                            <div class="layer tcp-style" style="height: 46px;">
+                                2. Internet réteg (Internet)
+                            </div>
+                            <div class="layer tcp-style" style="height: 98px;">
+                                1. Hálózati hozzáférés<br>(Network Access)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jobb oldalt alul egy link, ami visszavisz a nyitóoldalra -->
+            <a class="bottom-link" href="index.html">Vissza a nyitóoldalra →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 – 3. Csapattag feladata</p>
+    </footer>
+</body>
+</html>
