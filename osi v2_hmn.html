@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Systems Interconnection Model - v2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f6fa;
+            color: #243447;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f4e79;
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 6px;
+        }
+
+        nav {
+            background: #163a5a;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #2d6fa3;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            min-height: 600px;
+            position: relative;
+        }
+
+        .page h2 {
+            color: #1f4e79;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #dce8f2;
+            padding-bottom: 10px;
+        }
+
+        .page h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #2d6fa3;
+        }
+
+        .info-box {
+            background: #eef6fc;
+            border-left: 5px solid #2d6fa3;
+            padding: 15px 18px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* Diagram / Összehasonlítás struktúra */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .model-box {
+            border: 2px solid #2d6fa3;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .model-box h4 {
+            background: #1f4e79;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .layer-item {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #dce8f2;
+            background: #eef6fc;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .layer-item:last-child {
+            border-bottom: none;
+        }
+
+        .bottom-link {
+            position: absolute;
+            bottom: 25px;
+            right: 35px;
+            color: #1f4e79;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bottom-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #163a5a;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hálózati Ismeretek</h1>
+        <p>OSI Modell bemutatása</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Nyitóoldal</a>
+        <a href="osi_modell_v2.html">OSI modell</a>
+        <a href="bemutatkozas_v2.html">Bemutatkozás</a>
+    </nav>
+
+    <main>
+        <section class="page">
+            <h2>Open Systems Interconnection Model</h2>
+
+            <div class="info-box">
+                Az OSI (Open Systems Interconnection) modell egy koncepcionális keretrendszer, amely leírja a hálózati kommunikáció folyamatát. A modell a teljes kommunikációs folyamatot hét elkülöníthető rétegre osztja fel. Minden egyes réteg meghatározott feladatokért felelős, és szolgáltatásokat nyújt a felette lévő réteg számára. Az adatok küldésekor a felső rétegektől haladunk az alsóbb rétegek felé, míg a fogadó oldalon ez a folyamat fordítva játszódik le. Bár a gyakorlatban a TCP/IP modell terjedt el, az OSI modell továbbra is az oktatás és a hálózati hibaelhárítás legfontosabb alapja.
+            </div>
+
+            <h3>OSI modell és a TCP/IP modell összehasonlítása</h3>
+            <div class="comparison-container">
+                <div class="model-box">
+                    <h4>OSI Modell (7 réteg)</h4>
+                    <div class="layer-item">7. Alkalmazási réteg</div>
+                    <div class="layer-item">6. Megjelenítési réteg</div>
+                    <div class="layer-item">5. Viszonyréteg</div>
+                    <div class="layer-item">4. Szállítási réteg</div>
+                    <div class="layer-item">3. Hálózati réteg</div>
+                    <div class="layer-item">2. Adatkapcsolati réteg</div>
+                    <div class="layer-item">1. Fizikai réteg</div>
+                </div>
+
+                <div class="model-box">
+                    <h4>TCP/IP Modell (4 réteg)</h4>
+                    <div class="layer-item" style="padding: 35px 10px;">4. Alkalmazási réteg</div>
+                    <div class="layer-item">3. Szállítási réteg</div>
+                    <div class="layer-item">2. Internet réteg</div>
+                    <div class="layer-item" style="padding: 23px 10px;">1. Hálózati hozzáférés</div>
+                </div>
+            </div>
+
+            <!-- Jobb oldalt alul egy link, ami visszavisz a nyitóoldalra -->
+            <a class="bottom-link" href="index.html">Vissza a nyitóoldalra →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 – 3. Csapattag feladata</p>
+    </footer>
+</body>
+</html>
